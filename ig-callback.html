@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Instagram sign-in</title>
+<style>body{font-family:system-ui,sans-serif;max-width:32rem;margin:4rem auto;padding:0 1rem;color:#222}</style>
+</head>
+<body>
+<h1>Finishing Instagram sign-in…</h1>
+<p id="msg">Handing the sign-in back to the publishing tool on this computer.</p>
+<script>
+  // Instagram only redirects to https pages, so this page forwards the result to the local
+  // sign-in helper (instagram-signin.js) that is waiting on this same computer.
+  var query = window.location.search;
+  if (query) {
+    window.location.replace('http://localhost:3466/callback/' + query);
+  } else {
+    document.getElementById('msg').textContent = 'Nothing to do here.';
+  }
+</script>
+</body>
+</html>
